@@ -1,0 +1,25 @@
+VERSION BUILD=9030808 RECORDER=FX
+
+'http://www.iopus.com/imacros/support/passwordtool/
+URL GOTO=https://ep.ss.sw.ericsson.se/irj/portal
+TAG POS=1 TYPE=INPUT:TEXT FORM=NAME:logonForm ATTR=ID:logonuidfield CONTENT=eviazhe
+SET !ENCRYPTION TMPKEY
+TAG POS=1 TYPE=INPUT:PASSWORD FORM=NAME:logonForm ATTR=ID:logonpassfield CONTENT=ka8TC2UCJFiTew2WGRJL3UmioVfZxb+HVfB1HCmbXlHnSmwfy/Xx5EhMKcg5wg5pN2naUTHSmujOHbcmI+FmTA==
+TAG POS=1 TYPE=INPUT:SUBMIT FORM=NAME:logonForm ATTR=NAME:uidPasswordLogon
+WAIT SECONDS=3
+TAG POS=1 TYPE=SPAN ATTR=TXT:Record<SP>Working<SP>Time
+FRAME NAME="isolatedWorkArea"
+WAIT SECONDS=5
+SET !VAR1 EVAL("var d = new Date(); d.getDay()")
+TAG POS=1 TYPE=INPUT:TEXT ATTR=ID:aaaaKEBH.VcCatTableWeek.WORKDATE{{!VAR1}}_InputField.0 CONTENT=8
+WAIT SECONDS=3
+FRAME NAME="isolatedWorkArea"
+TAG POS=1 TYPE=DIV ATTR=ID:aaaaKEBH.VcCatRecordEntryView.ButtonNext
+WAIT SECONDS=3
+FRAME NAME="isolatedWorkArea"
+TAG POS=1 TYPE=DIV ATTR=ID:aaaaLBOD.VcGenericButtonView.Save_com_sap_xss_hr_cat_record_vac_review_VcCatRecordReview
+'WAIT SECONDS=5
+FRAME F=0
+URL GOTO=javascript:document.getElementById("buttonlogoff").onmouseup();
+'WAIT SECONDS=1
+URL GOTO=javascript:document.getElementById("button_button_std_yes").onclick();
