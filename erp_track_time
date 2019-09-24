@@ -2,24 +2,28 @@ VERSION BUILD=9030808 RECORDER=FX
 
 'http://www.iopus.com/imacros/support/passwordtool/
 URL GOTO=https://ep.ss.sw.ericsson.se/irj/portal
+SET !TIMEOUT_TAG 20
 TAG POS=1 TYPE=INPUT:TEXT FORM=NAME:logonForm ATTR=ID:logonuidfield CONTENT=eviazhe
 SET !ENCRYPTION TMPKEY
 TAG POS=1 TYPE=INPUT:PASSWORD FORM=NAME:logonForm ATTR=ID:logonpassfield CONTENT=ka8TC2UCJFiTew2WGRJL3UmioVfZxb+HVfB1HCmbXlHnSmwfy/Xx5EhMKcg5wg5pN2naUTHSmujOHbcmI+FmTA==
 TAG POS=1 TYPE=INPUT:SUBMIT FORM=NAME:logonForm ATTR=NAME:uidPasswordLogon
-WAIT SECONDS=3
-TAG POS=1 TYPE=SPAN ATTR=TXT:Record<SP>Working<SP>Time
+TAG POS=1 TYPE=DIV ATTR=ID:L2N2
+URL GOTO=javascript:document.getElementById("L2N2").onclick();
 FRAME NAME="isolatedWorkArea"
-WAIT SECONDS=5
+
+FRAME F=4
+TAG POS=1 TYPE=INPUT:TEXT ATTR=ID:aaaaKEBH.VcCatTableWeek.BEMOT_InputField.0 CONTENT=HC
+TAG POS=1 TYPE=INPUT:TEXT ATTR=ID:aaaaKEBH.VcCatTableWeek.LSTAR_InputField.0 CONTENT=A00001
+TAG POS=1 TYPE=INPUT:TEXT ATTR=ID:aaaaKEBH.VcCatTableWeek.RNPLNR_InputField.0 CONTENT=94184490
+TAG POS=1 TYPE=INPUT:TEXT ATTR=ID:aaaaKEBH.VcCatTableWeek.VORNR_InputField.0 CONTENT=0010
+TAG POS=1 TYPE=INPUT:TEXT ATTR=ID:aaaaKEBH.VcCatTableWeek.AWART_DropDown.0 CONTENT=Productive<SP>hours<SP>(1000)<LF>
+
 SET !VAR1 EVAL("var d = new Date(); d.getDay()")
 TAG POS=1 TYPE=INPUT:TEXT ATTR=ID:aaaaKEBH.VcCatTableWeek.WORKDATE{{!VAR1}}_InputField.0 CONTENT=8
-WAIT SECONDS=3
 FRAME NAME="isolatedWorkArea"
 TAG POS=1 TYPE=DIV ATTR=ID:aaaaKEBH.VcCatRecordEntryView.ButtonNext
-WAIT SECONDS=3
 FRAME NAME="isolatedWorkArea"
 TAG POS=1 TYPE=DIV ATTR=ID:aaaaLBOD.VcGenericButtonView.Save_com_sap_xss_hr_cat_record_vac_review_VcCatRecordReview
-'WAIT SECONDS=5
 FRAME F=0
 URL GOTO=javascript:document.getElementById("buttonlogoff").onmouseup();
-'WAIT SECONDS=1
 URL GOTO=javascript:document.getElementById("button_button_std_yes").onclick();
